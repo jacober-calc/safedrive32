@@ -1,0 +1,157 @@
+# STACK
+
+# REGS
+
+# FLAGS
+
+# SEED
+
+# MODE
+MTRIG: DEG
+MFMT: FIX 6
+
+# EQUATION LIST
+EQNPTR: 0
+EQN
+EQNEND
+
+# PROGRAM
+PTR: 0
+PGM
+  LBL G
+  XEQ V
+  INPUT G
+  RCL U
+  \mul;
+  STO X
+  \div;
+  STO T
+  RCL M
+  RCL\mul; T
+  2
+  \div;
+  STO D
+  GTO Z
+  LBL D
+  XEQ V
+  INPUT D
+  RCL M
+  x\sqr;
+  RCL\div; D
+  2
+  \div;
+  STO X
+  RCL\div; U
+  STO G
+  2
+  RCL\mul; D
+  RCL\div; M
+  STO T
+  GTO Z
+  LBL T
+  XEQ V
+  INPUT T
+  RCL\mul; U
+  1/x
+  \mul;
+  STO G
+  RCL\mul; U
+  STO X
+  RCL M
+  RCL\mul; T
+  2
+  \div;
+  STO D
+  GTO Z
+  LBL X
+  XEQ V
+  INPUT X
+  \div;
+  STO T
+  RCL M
+  RCL\mul; T
+  2
+  \div;
+  STO D
+  RCL X
+  RCL\div; U
+  STO G
+  GTO Z
+  LBL V
+  INPUT V
+  3.6
+  \div;
+  STO M
+  9.80665
+  STO U
+  x<>y
+  RTN
+  LBL Z
+  RCL D
+  12.192
+  \div;
+  STO B
+  RCL G
+  RCL X
+  RCL T
+  RCL D
+  FS? 1
+  VIEW B
+  RTN
+  LBL S
+  XEQ V
+  INPUT R
+  INPUT F
+  INPUT S
+  RCL M
+  RCL\mul; R
+  STO X
+  RCL M
+  x\sqr;
+  2
+  RCL\mul; U
+  RCL F
+  RCL+ S
+  \mul;
+  \div;
+  +
+  STO Z
+  x<>y
+  -
+  STO Y
+  CLx
+  ENTER
+  RCL X
+  RCL Y
+  RCL Z
+  RTN
+  LBL K
+  INPUT A
+  INPUT C
+  INPUT O
+  RCL A
+  SIN
+  RCL\mul; O
+  RCL- C
+  RTN
+  LBL W
+  INPUT W
+  INPUT N
+  86
+  \mul;
+  ENTER
+  x<>y
+  RCL\div; W
+  100
+  \mul;
+  x<>y
+  RTN
+  LBL B
+  INPUT P
+  INPUT L
+  INPUT H
+  RCL P
+  RCL+ L
+  RCL\div; H
+  RTN
+PGMEND
